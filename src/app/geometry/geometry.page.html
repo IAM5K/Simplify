@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Simplify Geometry</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="select-dimension">
+    <div *ngIf="dimension==1">
+      <h1>Basics of Geometry</h1>
+    <p>Geometric shape are mainly of two types on basis Dimension</p>
+    <ol>
+      <li *ngFor="let item of shapetype"> <b>{{item.name}} : </b> {{item.defination}} <br><b>Examples: </b> {{item.examples}} <br></li>
+    </ol>  
+    
+    <h4>Need help in calculation ?</h4>
+
+  </div>
+    
+    <ion-item>
+      <ion-label>Select Shape Dimension</ion-label>
+      <ion-select [(ngModel)]="dimension" id="dimension">
+        <ion-select-option value="2">2 Dimension</ion-select-option>
+        <ion-select-option value="3">3 Dimension</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </div> 
+
+
+  <div class="select-shape">
+    <ion-item *ngIf="dimension==3">
+      <ion-label>Select Geometical shape</ion-label>
+      <ion-select [(ngModel)]="shape">
+        <ion-select-option value="Sphere">Sphere</ion-select-option>
+        <ion-select-option value="Cube">Cube</ion-select-option>
+        <ion-select-option value="Cuboid">Cuboid</ion-select-option>
+        <ion-select-option value="Cylinder">Cylinder</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item *ngIf="dimension==2">
+      <ion-label>Select Geometical shape</ion-label>
+      <ion-select [(ngModel)]="shape" >
+        <ion-select-option value="brown">Circle</ion-select-option>
+        <ion-select-option value="triangle">Triangle</ion-select-option>
+        <ion-select-option value="black">Square</ion-select-option>
+        <ion-select-option value="red">Rectangle</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <h3>{{dimension}} </h3>
+    <h3>shape {{shape}} </h3>
+
+    <button id="geometry-reset-btn" type="reset" (click)=reset()> Reset</button>
+  </div>
+</ion-content>
